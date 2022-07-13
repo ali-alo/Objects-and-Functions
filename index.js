@@ -35,21 +35,26 @@ function getArgumentType(arg) {
 
 // simple and working solution
 function isNumberPrime1(num) {
-  for (let i = 2; i < num; i++) {
-    if (num % i === 0) {
-      return false;
+  if (num > 1) {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
     }
+    return true;
   }
-
-  return true;
+  return false;
 }
 
 // alternative solution which might be more appopriate for big prime numbers
 function isNumberPrime2(num) {
-  let result = true;
-  const divisionList = [2, 3, 5, 7];
+  if (num > 1) {
+    let result = true;
+    const divisionList = [2, 3, 5, 7];
 
-  if (num !== 2 && num !== 3 && num !== 5 && num !== 7)
-    result = !divisionList.some((denominator) => num % denominator === 0);
-  return result;
+    if (num !== 2 && num !== 3 && num !== 5 && num !== 7)
+      result = !divisionList.some((denominator) => num % denominator === 0);
+    return result;
+  }
+  return false;
 }
